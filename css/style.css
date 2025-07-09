@@ -1,0 +1,30 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.products {
+    width: 70%;
+    float: left;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    margin: 0 0 10px;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.cart {
+    width: 25%;
+    float: right;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
