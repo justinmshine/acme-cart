@@ -3,11 +3,6 @@ session_start();
 require_once 'object/cart.php';
 require_once 'object/product.php';
 
-$product = [];
-$product[] = new Product(1, "Red Widget", "R01",  32.05, 20);
-$product[] = new Product(2, "Green Widget", "G01",  24.95, 30);
-$product[] = new Product(3, "Blue Widget", "B01",  7.95, 15);
-
 header('Content-Type: application/json');
 
 $cart = new Cart();
