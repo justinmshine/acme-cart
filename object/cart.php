@@ -121,6 +121,7 @@ class Cart
     public function clear(): void
     {
         $this->items = [];
+        $_SESSION['cart'] = $this->items;
     }
 
     private function save()
