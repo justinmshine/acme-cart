@@ -1,7 +1,13 @@
 <?php
 class Cart
 {
-    private $items = [];
+    private $items;
+
+    public function __construct()
+    {
+        // Initialize cart from session or as empty array
+        $this->items = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+    }
 
     /**
      * Add a product to the cart or update quantity if it exists.
@@ -29,6 +35,7 @@ class Cart
                 'quantity' => $quantity,
             ];
         }
+        $this->save();
     }
 
     /**
@@ -41,7 +48,7 @@ class Cart
     {
         if (isset($this->items[$productId])) {
             unset($this->items[$productId]);
-            return true;
+            $this->save();
         }
         return false;
     }
@@ -64,8 +71,8 @@ class Cart
             $this->removeItem($productId);
         } else {
             $this->items[$productId]['quantity'] = $quantity;
+            $this->save();
         }
-        return true;
     }
 
     /**
@@ -115,24 +122,11 @@ class Cart
     {
         $this->items = [];
     }
+
+    private function save()
+    {
+        $_SESSION['cart'] = $this->items;
+    }
 }
-
-// Example usage:
-
-$cart = new Cart();
-$cart->addItem(101, 'Apple iPhone 14', 799.99, 2);
-$cart->addItem(202, 'Samsung Galaxy S23', 699.99, 1);
-$cart->updateItemQuantity(101, 3);
-$cart->removeItem(202);
-
-echo "Items in cart:\n";
-print_r($cart->getItems());
-
-echo "Total Quantity: " . $cart->getTotalQuantity() . "\n";
-echo "Total Price: $" . number_format($cart->getTotalPrice(), 2) . "\n";
-
-$cart->clear();
-echo "Cart after clearing:\n";
-print_r($cart->getItems());
 
 ?>

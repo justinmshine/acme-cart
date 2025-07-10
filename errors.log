@@ -1,0 +1,67 @@
+In the get cart actionArray
+(
+)
+0In the get cart actionArray
+(
+)
+0Items match so add in to itemsIn the get cart actionArray
+(
+)
+0Items match so add in to itemsIn the get cart actionArray
+(
+    [1] => Array
+        (
+            [name] => Red Widget
+            [code] => R01
+            [price] => 32.05
+            [quantity] => 2
+        )
+
+)
+64.1Items match so add in to itemsIn the get cart actionArray
+(
+    [1] => Array
+        (
+            [name] => Red Widget
+            [code] => R01
+            [price] => 32.05
+            [quantity] => 2
+        )
+
+    [2] => Array
+        (
+            [name] => Green Widget
+            [code] => G01
+            [price] => 24.95
+            [quantity] => 4
+        )
+
+)
+163.9Items match so add in to itemsIn the get cart actionArray
+(
+    [1] => Array
+        (
+            [name] => Red Widget
+            [code] => R01
+            [price] => 32.05
+            [quantity] => 2
+        )
+
+    [2] => Array
+        (
+            [name] => Green Widget
+            [code] => G01
+            [price] => 24.95
+            [quantity] => 4
+        )
+
+    [3] => Array
+        (
+            [name] => Blue Widget
+            [code] => B01
+            [price] => 7.95
+            [quantity] => 3
+        )
+
+)
+187.75
