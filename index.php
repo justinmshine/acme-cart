@@ -23,7 +23,7 @@
         <div class="products">
             <?php foreach ($product as $item) { ?>
                 <div class="product">
-                    <h2><?php echo $item->getName(); ?></h2><p class="stock">Stock: <?php echo $item->getQuantity(); ?></p>
+                    <h2><?php echo $item->getName(); ?></h2><?php if ($item->getId() == 1) { echo "<p>(“buy one red widget, get the second half price”)</p>"; } ?><p class="stock">Stock: <?php echo $item->getQuantity(); ?></p>
                     <p>Code: <?php echo $item->getCode(); ?></p>
                     <p>Price: $<?php echo number_format($item->getPrice(), 2); ?></p>
                     <div class="purchase">
@@ -43,6 +43,10 @@
                 </thead>
                 <tbody></tbody>
                 <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align:right;"><strong>Shipping:</strong></td>
+                        <td colspan="2" id="cart-total">$0.00</td>
+                    </tr>
                     <tr>
                         <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
                         <td colspan="2" id="cart-total">$0.00</td>
