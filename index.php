@@ -74,7 +74,7 @@
                                     tbody += `<tr data-productId="${productId}">
                                         <td>${item.name}</td>
                                         <td>$${item.price.toFixed(2)}</td>
-                                        <td><input type="number" min="1" class="quantity-input" value="${item.quantity}" style="width:50px"></td>
+                                        <td><input type="number" min="1" class="quantity-input" value="${item.quantity}" style="width:50px" readonly></td>
                                         <td>$${subtotal}</td>
                                         <td><button class="remove-item">Remove</button></td>
                                     </tr>`;
