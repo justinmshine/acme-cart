@@ -73,6 +73,7 @@ class Cart
             $this->items[$productId]['quantity'] = $quantity;
             $this->save();
         }
+        return false;
     }
 
     /**
