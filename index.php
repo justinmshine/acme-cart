@@ -39,7 +39,7 @@
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3" style="text-align:right;"><strong>Sub total:</strong></td>
+                        <td colspan="3" style="text-align:right;"><strong>Sub total(minus discount):</strong></td>
                         <td colspan="2" id="subtotal-total">$0.00</td>
                     </tr>
                     <tr>

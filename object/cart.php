@@ -108,8 +108,19 @@ class Cart
     public function getTotalPrice(): float
     {
         $totalPrice = 0.0;
-        foreach ($this->items as $item) {
-            $totalPrice += $item['price'] * $item['quantity'];
+        foreach ($this->items as $key => $item) {
+            if($key == 1) {
+                // Get second half price for Red Widget R01
+                $halfAmount = $item['quantity'] / 2;
+                $halfAmount = floor($halfAmount);
+                $fullPrice = $item['quantity'] - $halfAmount;
+                $totalPrice += $fullPrice * $item['price'];
+                $totalPrice += $halfAmount * ($item['price'] / 2);
+
+            }
+            else {
+                $totalPrice += $item['price'] * $item['quantity'];
+            }
         }
         return $totalPrice;
     }
