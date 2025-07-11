@@ -61,12 +61,10 @@ switch ($action) {
         break;
 
     case 'get':
-        error_log("In the get cart action", 3, "errors.log");
         $items = $cart->getItems();
         $total = $cart->getTotalPrice();
-        error_log(print_r($items, true), 3, "errors.log");
-        error_log(print_r($total, true), 3, "errors.log");
-        echo json_encode(['status' => 'success', 'items' => $items, 'total' => $total]);
+        $shipping = $cart->getShipping($total);
+        echo json_encode(['status' => 'success', 'items' => $items, 'total' => $total, 'shipping' => $shipping]);
         break;
 
     case 'clear':

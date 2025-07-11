@@ -39,8 +39,12 @@
                 <tbody></tbody>
                 <tfoot>
                     <tr>
+                        <td colspan="3" style="text-align:right;"><strong>Sub total:</strong></td>
+                        <td colspan="2" id="subtotal-total">$0.00</td>
+                    </tr>
+                    <tr>
                         <td colspan="3" style="text-align:right;"><strong>Shipping:</strong></td>
-                        <td colspan="2" id="cart-total">$0.00</td>
+                        <td colspan="2" id="shipping-total">$0.00</td>
                     </tr>
                     <tr>
                         <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
@@ -80,7 +84,10 @@
                                 });
                             }
                             $('#cart-table tbody').html(tbody);
-                            $('#cart-total').text('$' + parseFloat(res.total).toFixed(2));
+                            let overallTotal = (parseFloat(res.total) + parseFloat(res.shipping)).toFixed(2);
+                            $('#subtotal-total').text('$' + parseFloat(res.total).toFixed(2));
+                            $('#shipping-total').text('$' + parseFloat(res.shipping).toFixed(2));
+                            $('#cart-total').text('$' + overallTotal);
                         }
                     },
                     error: function() {

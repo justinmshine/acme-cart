@@ -115,6 +115,22 @@ class Cart
     }
 
     /**
+     * Get shipping cost based on total price
+     *
+     * @return float
+     */
+    public function getShipping(float $total): float
+    {
+        if ($total > 90) {
+            return 0.0; // Free shipping for orders over $90
+        }
+        if ($total < 50) {
+            return 4.95; // Flat rate shipping for orders under $50
+        }
+        return 2.95; // Flat rate shipping between $50 and $90
+    }
+
+    /**
      * Empty the cart
      *
      * @return void
