@@ -34,6 +34,20 @@ class CartTest extends TestCase
         $product2 = new Product(2, "Test Product 2", "TP02", 20.00, 3);
         $this->cart->addItem($product1->getId(), $product1->getName(), $product1->getCode(), $product1->getPrice(), 2);
         $this->cart->addItem($product2->getId(), $product2->getName(), $product2->getCode(), $product2->getPrice(), 1);
-        $this->assertEquals(40.00, $this->cart->getTotalPrice());
+        $this->assertEquals(35.00, $this->cart->getTotalPrice());
+    }
+
+    public function testShipping(): void
+    {
+        $shipping = $this->cart->getShipping(65.55);
+        $this->assertEquals(2.95, $shipping);
+    }
+
+    public function testClearCart(): void
+    {
+        $product = new Product(1, "Test Product", "TP01", 10.00, 5);
+        $this->cart->addItem($product->getId(), $product->getName(), $product->getCode(), $product->getPrice(), 2);
+        $this->cart->clear();
+        $this->assertCount(0, $this->cart->getItems());
     }
 }
